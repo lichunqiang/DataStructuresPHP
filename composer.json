@@ -1,0 +1,25 @@
+{
+    "name": "light/data-structures-php",
+    "description": "Data Structures in PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lichunqiang",
+            "email": "light-li@hotmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Light\\DataStructures\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Light\\DataStructuresTests\\": "tests"
+        }
+    }
+}
