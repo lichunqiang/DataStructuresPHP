@@ -5,12 +5,15 @@ namespace Light\DataStructures\Tree;
 /**
  * Class BinaryTree
  *
- * 基于递归调用实现的二叉树的前序遍历，中序遍历，后序遍历.
+ * 二叉树遍历:
+ *
+ * 1. 广度遍历
+ * 2. 深度遍历
  */
 final class BinaryTree
 {
     /**
-     * 通过递归的方式遍历.
+     * 基于递归调用实现的二叉树的前序遍历，中序遍历，后序遍历.
      *
      * @param Node $root
      * @param string $order
@@ -28,6 +31,9 @@ final class BinaryTree
         return $result;
     }
     
+    //----------------------------------------------------
+    // 非递归实现
+    //----------------------------------------------------
     /**
      * 前序遍历.
      *
@@ -45,7 +51,7 @@ final class BinaryTree
         while ($node = \array_pop($stack)) {
             /** @var Node $node 根节点 */
             $result[] = $node->value;
-    
+            
             if ($node->right) {
                 $stack[] = $node->right;
             }
@@ -115,6 +121,34 @@ final class BinaryTree
         }
         
         return \array_reverse($result);
+    }
+    
+    /**
+     * 层次遍历, 即广度遍历.
+     *
+     * @param Node $root
+     *
+     * @return array
+     */
+    public function levelTraversal(Node $root): array
+    {
+        $result = [];
+        
+        $queue = [$root];
+        
+        while (!empty($queue)) {
+            /** @var Node $node */
+            $node = \array_shift($queue);
+            $result[] = $node->value;
+            if ($node->left) {
+                $queue[] = $node->left;
+            }
+            if ($node->right) {
+                $queue[] = $node->right;
+            }
+        }
+        
+        return $result;
     }
     
     /**

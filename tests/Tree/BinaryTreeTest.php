@@ -45,7 +45,7 @@ class BinaryTreeTest extends TestCase
         $binary = new BinaryTree();
         
         $res = $binary->recursionTraversal($this->tree, $method);
-        $this->assertEquals($expect, \implode('-', $res));
+        $this->assertEquals($expect, \implode('->', $res));
     }
     
     /**
@@ -60,7 +60,15 @@ class BinaryTreeTest extends TestCase
         
         $result = $binary->{"{$method}Traversal"}($this->tree);
         
-        $this->assertEquals($expect, \implode('-', $result));
+        $this->assertEquals($expect, \implode('->', $result));
+    }
+    
+    public function testLevelTraversal()
+    {
+        $binary = new BinaryTree();
+        $result = $binary->levelTraversal($this->tree);
+        
+        $this->assertEquals('28->16->30->13->22->29->43', \implode('->', $result));
     }
     
     /**
@@ -70,11 +78,11 @@ class BinaryTreeTest extends TestCase
     {
         return [
             //前序遍历
-            ['28-16-13-22-30-29-43', 'pre'],
+            ['28->16->13->22->30->29->43', 'pre'],
             //中序遍历
-            ['13-16-22-28-29-30-43', 'in'],
+            ['13->16->22->28->29->30->43', 'in'],
             //后序遍历
-            ['13-22-16-29-43-30-28', 'post'],
+            ['13->22->16->29->43->30->28', 'post'],
         ];
     }
 }
