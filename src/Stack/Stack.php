@@ -18,8 +18,6 @@ class Stack implements StackInterface, \Countable
     
     /**
      * @param mixed $value
-     *
-     * @return mixed
      */
     public function push($value)
     {
@@ -39,6 +37,10 @@ class Stack implements StackInterface, \Countable
      */
     public function top()
     {
+        if ($this->isEmpty()) {
+            return null;
+        }
+        
         return $this->data[count($this->data) - 1];
     }
     
