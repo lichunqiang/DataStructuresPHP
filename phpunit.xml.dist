@@ -4,14 +4,17 @@
         <testsuite name="Data Structures">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
-        <testsuite name="Stack">
+        <testsuite name="stack">
             <directory suffix="Test.php">tests/Stack</directory>
         </testsuite>
-        <testsuite name="LinkedList">
+        <testsuite name="linkedList">
             <directory suffix="Test.php">tests/LinkedList</directory>
         </testsuite>
-        <testsuite name="Tree">
+        <testsuite name="tree">
             <directory suffix="Test.php">tests/Tree</directory>
+        </testsuite>
+        <testsuite name="heap">
+            <directory suffix="Test.php">tests/Heap</directory>
         </testsuite>
     </testsuites>
     <filter>
